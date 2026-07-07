@@ -14,8 +14,14 @@ console.log('JWT_SECRET set:', !!process.env.JWT_SECRET);
 
 let dbUrl = process.env.DATABASE_URL || '';
 if (dbUrl.includes('supabase.co:5432')) {
-  dbUrl = dbUrl.replace(/db\.[^.]+\.supabase\.co:5432/, 'aws-0-ap-south-1.pooler.supabase.com:6543');
-  if (!dbUrl.includes('pgbouncer')) dbUrl += '?sslmode=require&pgbouncer=true';
+  const ref = dbUrl.match(/db\.([^.]+)\.supabase/)?.[1] || '';
+  if (ref) {
+    dbUrl = dbUrl
+      .replace(/db\.[^.]+\.supabase\.co:5432/, 'aws-1-ap-south-1.pooler.supabase.com:6543')
+      .replace(/\/postgres$/, '')
+      .replace(/postgres:\/\/postgres:/, `postgres://postgres.${ref}:`);
+    if (!dbUrl.includes('pgbouncer')) dbUrl += '?sslmode=require&pgbouncer=true';
+  }
 }
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
