@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: agritradehub-api
+    runtime: node
+    repo: https://github.com/ayushdixit1-av/AgriTradeHub
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: NODE_VERSION
+        value: 20

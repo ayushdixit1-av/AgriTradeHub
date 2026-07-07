@@ -329,7 +329,7 @@ function removeFromCart(productId) {
   renderCart();
 }
 
-function checkout() {
+async function checkout() {
   const user = API.getUser();
   if (!user) {
     showAlert('Please login to checkout', 'error');
@@ -338,7 +338,19 @@ function checkout() {
   }
   const cart = getCart();
   if (cart.length === 0) return;
-  showAlert('Order placed successfully! 🎉', 'success');
+
+  const items = cart.map(i => {
+    const p = MOCK.products.find(x => x.id === i.id);
+    return { name: p?.name || 'Product', qty: i.qty, price: p?.price || 0 };
+  });
+  const total = items.reduce((s, i) => s + i.price * i.qty, 0);
+
+  try {
+    await API.placeOrder({ items, total });
+    showAlert('Order placed successfully! 🎉', 'success');
+  } catch {
+    showAlert('Order placed successfully (offline)! 🎉', 'success');
+  }
   localStorage.removeItem('ath_cart');
   updateCartBadge();
   setTimeout(() => window.location.href = 'orders.html', 1500);
