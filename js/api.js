@@ -1,5 +1,5 @@
 const API = {
-  BASE: localStorage.getItem('ath_api_url') || 'http://localhost:5000/api',
+  BASE: localStorage.getItem('ath_api_url') || 'https://agritradehub-api.onrender.com/api',
   TOKEN_KEY: 'ath_token',
   USER_KEY: 'ath_user',
 
