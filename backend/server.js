@@ -18,7 +18,6 @@ if (dbUrl.includes('supabase.co:5432')) {
   if (ref) {
     dbUrl = dbUrl
       .replace(/db\.[^.]+\.supabase\.co:5432/, 'aws-1-ap-south-1.pooler.supabase.com:6543')
-      .replace(/\/postgres$/, '')
       .replace(/\/\/postgres:/, `//postgres.${ref}:`);
     if (!dbUrl.includes('pgbouncer')) dbUrl += '?sslmode=require&pgbouncer=true';
   }
