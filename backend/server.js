@@ -15,8 +15,10 @@ console.log('JWT_SECRET set:', !!process.env.JWT_SECRET);
 let dbUrl = process.env.DATABASE_URL || '';
 if (dbUrl.includes('supabase.co:5432')) {
   dbUrl = dbUrl.replace(/db\.[^.]+\.supabase\.co:5432/, 'aws-0-ap-south-1.pooler.supabase.com:6543');
-  if (!dbUrl.includes('pgbouncer')) dbUrl += '?pgbouncer=true';
+  if (!dbUrl.includes('pgbouncer')) dbUrl += '?sslmode=require&pgbouncer=true';
 }
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
 const pool = new Pool({
   connectionString: dbUrl,
