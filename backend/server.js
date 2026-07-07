@@ -9,9 +9,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+console.log('DATABASE_URL set:', !!process.env.DATABASE_URL);
+console.log('JWT_SECRET set:', !!process.env.JWT_SECRET);
+
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
+});
+
+pool.query('SELECT NOW()', (err) => {
+  if (err) console.error('DB CONNECTION FAILED:', err.message);
+  else console.log('DB connected successfully');
 });
 
 const JWT_SECRET = process.env.JWT_SECRET || 'agritradehub-secret-key-change-in-production';
@@ -146,8 +154,8 @@ app.get('/api/products', async (req, res) => {
     const { rows } = await pool.query(sql, params);
     res.json(rows);
   } catch (err) {
-    console.error('Products fetch error:', err);
-    res.status(500).json({ message: 'Server error' });
+    console.error('Products fetch error:', err.message, err.stack);
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -492,7 +500,7 @@ app.get('/api/dashboard/orders', auth, async (req, res) => {
     res.json(rows.map(o => ({ ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items })));
   } catch (err) {
     console.error('Dashboard orders error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
