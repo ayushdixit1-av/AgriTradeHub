@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriTradeHub - Direct Farm to Market</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌾</span>
+        <span>AgriTradeHub</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="products.html">Products</a>
+        <a href="mandi-prices.html">Mandi Prices</a>
+        <a href="orders.html">Orders</a>
+        <div class="nav-right">
+          <a href="cart.html" class="cart-badge">
+            🛒 <span class="cart-count">0</span>
+          </a>
+          <div class="auth-buttons"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Fresh from Farm,<br>Direct to Your Door</h1>
+      <p>Empowering farmers with fair prices and delivering fresh, quality produce directly from farm to consumers. No middlemen, just pure goodness.</p>
+      <div class="hero-buttons">
+        <a href="products.html" class="btn btn-secondary btn-lg">Browse Products</a>
+        <a href="register.html" class="btn btn-outline btn-lg">Start Selling</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Why Choose AgriTradeHub?</h2>
+      <p>Transforming agricultural trade through technology and transparency</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🤝</div>
+        <h3>Direct Farm Connect</h3>
+        <p>Farmers sell directly to consumers, ensuring fair prices and eliminating middlemen.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Real-time Mandi Prices</h3>
+        <p>Access live market prices to make informed selling and buying decisions.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <h3>Farm-Fresh Delivery</h3>
+        <p>Fresh produce delivered straight from farm to your doorstep.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>Quality Guaranteed</h3>
+        <p>Rate and review products to maintain high quality standards.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="featured-products" style="background:var(--bg-white);padding:60px 20px;max-width:100%;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-header">
+        <h2>Featured Products</h2>
+        <p>Handpicked fresh produce from trusted farmers</p>
+      </div>
+      <div class="grid grid-4"></div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="products.html" class="btn btn-primary btn-lg">View All Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Today's Mandi Prices</h2>
+      <p>Live market prices from major agricultural markets across India</p>
+    </div>
+    <table class="mandi-table" id="mandi-preview">
+      <thead>
+        <tr>
+          <th>Commodity</th>
+          <th>Market</th>
+          <th>Min Price</th>
+          <th>Max Price</th>
+          <th>Modal Price</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div style="text-align:center;margin-top:20px;">
+      <a href="mandi-prices.html" class="btn btn-outline">View All Mandi Prices →</a>
+    </div>
+  </section>
+
+  <section class="section" id="testimonials" style="background:var(--bg-white);padding:60px 20px;max-width:100%;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="section-header">
+        <h2>What Our Users Say</h2>
+        <p>Hear from farmers and customers who use AgriTradeHub</p>
+      </div>
+      <div class="features-grid"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>🌾 AgriTradeHub</h3>
+        <p style="opacity:0.8;font-size:0.9rem;">Empowering farmers, enriching lives. A digital marketplace connecting farmers directly with buyers.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="products.html">Browse Products</a>
+        <a href="mandi-prices.html">Mandi Prices</a>
+        <a href="register.html">Become a Seller</a>
+        <a href="cart.html">Shopping Cart</a>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">FAQs</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Privacy Policy</a>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p style="opacity:0.8;font-size:0.9rem;">📧 support@agritradehub.in</p>
+        <p style="opacity:0.8;font-size:0.9rem;">📞 +91-1800-123-AGRI</p>
+        <p style="opacity:0.8;font-size:0.9rem;">📍 New Delhi, India</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2024 AgriTradeHub. All rights reserved. | Built with ❤️ for Indian Farmers
+    </div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

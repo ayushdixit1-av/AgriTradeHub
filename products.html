@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products - AgriTradeHub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="products">
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌾</span>
+        <span>AgriTradeHub</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html" class="active">Products</a>
+        <a href="mandi-prices.html">Mandi Prices</a>
+        <a href="orders.html">Orders</a>
+        <div class="nav-right">
+          <a href="cart.html" class="cart-badge">
+            🛒 <span class="cart-count">0</span>
+          </a>
+          <div class="auth-buttons"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Farm Fresh Products</h2>
+      <p>Discover quality produce directly from farmers across India</p>
+    </div>
+
+    <div class="filter-bar">
+      <input type="text" id="search-input" placeholder="Search products or farmers...">
+      <select id="category-filter">
+        <option value="">All Categories</option>
+        <option value="grains">Grains</option>
+        <option value="vegetables">Vegetables</option>
+        <option value="fruits">Fruits</option>
+        <option value="spices">Spices</option>
+        <option value="oils">Oils</option>
+        <option value="dairy">Dairy</option>
+        <option value="others">Others</option>
+      </select>
+      <select id="sort-filter">
+        <option value="">Sort by</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="rating">Highest Rated</option>
+        <option value="name">Name</option>
+      </select>
+    </div>
+
+    <div class="grid grid-4" id="product-grid"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>🌾 AgriTradeHub</h3>
+        <p style="opacity:0.8;font-size:0.9rem;">Empowering farmers, enriching lives.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="products.html">Browse Products</a>
+        <a href="mandi-prices.html">Mandi Prices</a>
+        <a href="register.html">Become a Seller</a>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">FAQs</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 AgriTradeHub</div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

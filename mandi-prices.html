@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mandi Prices - AgriTradeHub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="mandi">
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌾</span>
+        <span>AgriTradeHub</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="mandi-prices.html" class="active">Mandi Prices</a>
+        <a href="orders.html">Orders</a>
+        <div class="nav-right">
+          <a href="cart.html" class="cart-badge">
+            🛒 <span class="cart-count">0</span>
+          </a>
+          <div class="auth-buttons"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Live Mandi Prices</h2>
+      <p>Real-time market prices from agricultural produce markets across India</p>
+    </div>
+
+    <div class="filter-bar" style="margin-bottom:20px;">
+      <input type="text" id="mandi-search" placeholder="Search commodity...">
+      <select id="mandi-state">
+        <option value="">All States</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Punjab">Punjab</option>
+        <option value="UP">Uttar Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Haryana">Haryana</option>
+      </select>
+    </div>
+
+    <div style="overflow-x:auto;">
+      <table class="mandi-table" id="mandi-table">
+        <thead>
+          <tr>
+            <th>Commodity</th>
+            <th>Market</th>
+            <th>State</th>
+            <th>Min Price (₹/quintal)</th>
+            <th>Max Price (₹/quintal)</th>
+            <th>Modal Price (₹/quintal)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:16px;font-size:0.85rem;color:var(--text-light);text-align:center;">
+      <span class="price-up">▲ Price Up</span> &nbsp;&nbsp;
+      <span class="price-down">▼ Price Down</span> &nbsp;&nbsp;
+      <span class="price-stable">◆ Stable</span> &nbsp;&nbsp;
+      | Prices in ₹ per quintal (100 kg)
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>🌾 AgriTradeHub</h3>
+        <p style="opacity:0.8;font-size:0.9rem;">Empowering farmers, enriching lives.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="products.html">Browse Products</a>
+        <a href="mandi-prices.html">Mandi Prices</a>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 AgriTradeHub</div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farmer Dashboard - AgriTradeHub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dashboard">
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🌾</span>
+        <span>AgriTradeHub</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="mandi-prices.html">Mandi Prices</a>
+        <a href="orders.html">Orders</a>
+        <div class="nav-right">
+          <a href="cart.html" class="cart-badge">
+            🛒 <span class="cart-count">0</span>
+          </a>
+          <div class="auth-buttons"></div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="dashboard">
+      <aside class="dashboard-sidebar">
+        <div class="user-info">
+          <div class="user-avatar" id="dash-avatar">RK</div>
+          <div class="user-name" id="dash-name">Rajesh Kumar</div>
+          <div class="user-role">👨‍🌾 Farmer</div>
+        </div>
+        <nav class="dashboard-nav">
+          <a href="#overview" class="active">📊 Overview</a>
+          <a href="#products">📦 My Products</a>
+          <a href="#orders">📋 Orders</a>
+          <a href="#add-product">➕ Add Product</a>
+          <a href="index.html">🏠 Back to Home</a>
+        </nav>
+      </aside>
+      <div class="dashboard-content">
+        <h2>Dashboard Overview</h2>
+        <div class="stats-grid" id="stats-grid"></div>
+
+        <h3 style="margin: 32px 0 16px; color: var(--primary-dark);">My Products</h3>
+        <div style="overflow-x:auto;margin-bottom:32px;">
+          <table class="mandi-table" id="dashboard-products">
+            <thead>
+              <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Rating</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <h3 style="margin: 32px 0 16px; color: var(--primary-dark);">Recent Orders</h3>
+        <div id="dashboard-orders-list"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>🌾 AgriTradeHub</h3>
+        <p style="opacity:0.8;font-size:0.9rem;">Empowering farmers, enriching lives.</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="products.html">Browse Products</a>
+        <a href="mandi-prices.html">Mandi Prices</a>
+      </div>
+      <div>
+        <h3>Support</h3>
+        <a href="#">Help Center</a>
+        <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2024 AgriTradeHub</div>
+  </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
