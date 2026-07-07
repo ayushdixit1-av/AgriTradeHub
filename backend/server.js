@@ -13,7 +13,9 @@ console.log('DATABASE_URL set:', !!process.env.DATABASE_URL);
 console.log('JWT_SECRET set:', !!process.env.JWT_SECRET);
 
 let dbUrl = process.env.DATABASE_URL || '';
-if (dbUrl.includes('supabase.co:5432')) dbUrl = dbUrl.replace(':5432', ':6543');
+if (dbUrl.includes('supabase.co:5432')) {
+  dbUrl = dbUrl.replace(/db\.[^.]+\.supabase\.co:5432/, 'aws-0-ap-south-1.pooler.supabase.com:6543');
+}
 
 const pool = new Pool({
   connectionString: dbUrl,
