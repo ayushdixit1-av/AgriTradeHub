@@ -76,7 +76,7 @@ app.post('/api/auth/register', async (req, res) => {
     res.status(201).json({ token, user });
   } catch (err) {
     console.error('Register error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -105,7 +105,7 @@ app.post('/api/auth/login', async (req, res) => {
     res.json({ token, user });
   } catch (err) {
     console.error('Login error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -119,7 +119,7 @@ app.get('/api/auth/me', auth, async (req, res) => {
     res.json(rows[0]);
   } catch (err) {
     console.error('Me error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -170,7 +170,7 @@ app.get('/api/products/:id', async (req, res) => {
     res.json(rows[0]);
   } catch (err) {
     console.error('Product fetch error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -189,7 +189,7 @@ app.post('/api/products', auth, async (req, res) => {
     res.status(201).json(rows[0]);
   } catch (err) {
     console.error('Product create error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -205,7 +205,7 @@ app.put('/api/products/:id', auth, async (req, res) => {
     res.json(rows[0]);
   } catch (err) {
     console.error('Product update error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -219,7 +219,7 @@ app.delete('/api/products/:id', auth, async (req, res) => {
     res.json({ message: 'Product deleted' });
   } catch (err) {
     console.error('Product delete error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -235,7 +235,7 @@ app.get('/api/cart', auth, async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error('Cart fetch error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -265,7 +265,7 @@ app.post('/api/cart', auth, async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error('Cart add error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -291,7 +291,7 @@ app.put('/api/cart', auth, async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error('Cart update error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -304,7 +304,7 @@ app.delete('/api/cart/:productId', auth, async (req, res) => {
     res.json({ message: 'Item removed from cart' });
   } catch (err) {
     console.error('Cart delete error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -324,7 +324,7 @@ app.post('/api/orders', auth, async (req, res) => {
     res.status(201).json({ id: orderId, status: 'pending', total });
   } catch (err) {
     console.error('Order create error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -337,7 +337,7 @@ app.get('/api/orders', auth, async (req, res) => {
     res.json(rows.map(o => ({ ...o, items: typeof o.items === 'string' ? JSON.parse(o.items) : o.items })));
   } catch (err) {
     console.error('Orders fetch error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -352,7 +352,7 @@ app.get('/api/orders/:id', auth, async (req, res) => {
     res.json(order);
   } catch (err) {
     console.error('Order fetch error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -371,7 +371,7 @@ app.put('/api/orders/:id/status', auth, async (req, res) => {
     res.json(rows[0]);
   } catch (err) {
     console.error('Order status error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -387,7 +387,7 @@ app.get('/api/products/:id/reviews', async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error('Reviews fetch error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -412,7 +412,7 @@ app.post('/api/products/:id/reviews', auth, async (req, res) => {
     res.status(201).json(rows[0]);
   } catch (err) {
     console.error('Review create error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -440,7 +440,7 @@ app.get('/api/mandi', async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error('Mandi fetch error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -474,7 +474,7 @@ app.get('/api/dashboard/stats', auth, async (req, res) => {
     });
   } catch (err) {
     console.error('Dashboard stats error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
@@ -487,7 +487,7 @@ app.get('/api/dashboard/products', auth, async (req, res) => {
     res.json(rows);
   } catch (err) {
     console.error('Dashboard products error:', err);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: 'Server error', error: err.message });
   }
 });
 
